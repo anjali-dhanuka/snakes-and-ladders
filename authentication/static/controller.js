@@ -215,7 +215,6 @@ else
 
 
 
-
 //console.log($rootScope.x);
 /* if((($rootScope.yourcurrentpos)%10)!=0)
 {
