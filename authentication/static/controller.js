@@ -191,11 +191,23 @@ else
   $rootScope.d=90;
 }
 }
+  
+function makerequest(){
+   $.ajax({
+     url:templates/save,
+     type:'POST',
+     data: { score:1}
+     }).done(function(data){
+      alert(data);
+});
+}
+      
+if($rootScope.yourcurrentpos==100){
+makerequest();     
+}
 
-
-
-
-
+}
+});
 
 
 
@@ -241,5 +253,4 @@ else
 	}
 } */   
 
-}
-});
+
