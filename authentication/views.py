@@ -12,9 +12,9 @@ def board(request):
 
 def save(request):
   if request.is_ajax():
-    if request.method=='GET':
-      user=profile.objects.get(id=request.GET.get('userid'))
-      user.score=request.GET.get('total')
+    if request.method=='POST':
+      user = User.objects.get(username=request.user.username)
+      user.score=request.POST.get('save')
       user.save()
       return HttpResponse("%s" %user.score)
       

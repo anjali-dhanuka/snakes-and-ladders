@@ -192,11 +192,13 @@ else
 }
 }
   
+var save=1
+
 function makerequest(){
    $.ajax({
      url:templates/save,
      type:'POST',
-     data: { score:1}
+     data: { save:save}
      }).done(function(data){
       alert(data);
 });
