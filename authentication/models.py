@@ -7,8 +7,9 @@ from django.contrib.auth.models import User
 
 class profile(models.Model):
    user = models.OneToOneField(User)
-   score = models.IntegerField()
+   score = models.IntegerField(default=0)
 
+   
 
 
 

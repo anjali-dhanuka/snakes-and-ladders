@@ -11,6 +11,7 @@ def board(request):
    return render(request,'board.html')
 
 def save(request):
+  print "anjali"
   if request.is_ajax():
     if request.method=='POST':
       user = User.objects.get(username=request.user.username)

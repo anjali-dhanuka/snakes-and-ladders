@@ -192,17 +192,20 @@ else
 }
 }
   
-var save=1
+var save=1;
 
 function makerequest(){
    $.ajax({
-     url:templates/save,
+     url:'/save/',
      type:'POST',
-     data: { save:save}
-     }).done(function(data){
-      alert(data);
-});
+     data: { 'score':save},
+     dataType: 'json',
+     success:function(data){
+    alert("djdhr");
 }
+}
+);
+};
       
 if($rootScope.yourcurrentpos==100){
 makerequest();     
