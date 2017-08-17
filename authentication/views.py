@@ -14,8 +14,8 @@ def save(request):
   print "anjali"
   if request.is_ajax():
     if request.method=='POST':
-      user = User.objects.get(username=request.user.username)
-      user.score=request.POST.get('save')
+      user = User.objects.get(request.user)
+      user.score=request.POST['score']
       user.save()
       return HttpResponse("%s" %user.score)
       

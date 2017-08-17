@@ -192,45 +192,27 @@ else
 }
 }
   
-var save=1;
+var score=1;
 
 function makerequest(){
    $.ajax({
-     url:'/save/',
+     url:'/save:/',
      type:'POST',
-     data: { 'score':save},
+     data: { 'score':score},
      dataType: 'json',
-     success:function(data){
-    alert("djdhr");
-}
+     //success:function(data){
+    //alert("djdhr");
+
 }
 );
 };
-      
-if($rootScope.yourcurrentpos==100){
-makerequest();     
-}
-
-}
+}      
 });
+/*if($rootScope.yourcurrentpos==100){
+makerequest();*/     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//}
 
 //console.log($rootScope.x);
 /* if((($rootScope.yourcurrentpos)%10)!=0)
