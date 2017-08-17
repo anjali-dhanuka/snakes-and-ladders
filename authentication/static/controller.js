@@ -195,19 +195,31 @@ else
 var score=1;
 
 function makerequest(){
-   $.ajax({
-     url:'/save:/',
-     type:'POST',
+  console.log("ads");   
+  $.ajax({
+     url:'/save/',
      data: { 'score':score},
      dataType: 'json',
      //success:function(data){
     //alert("djdhr");
 
-}
-);
-};
+      });
+  }
 }      
 });
+var score=121;
+function makerequest(){
+  console.log("ads");   
+  $.ajax({
+     type:'GET',
+     url:'/save/',
+     data: { 'score':score},
+     dataType: 'json',
+     //success:function(data){
+    //alert("djdhr");
+
+      });
+  }
 /*if($rootScope.yourcurrentpos==100){
 makerequest();*/     
 
