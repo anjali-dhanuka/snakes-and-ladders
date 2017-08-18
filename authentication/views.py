@@ -6,15 +6,22 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import logout
 from django.shortcuts import render
 from django.contrib.auth.views import logout as contrib_logout
+from django.conf import settings
+from django.shortcuts import redirect
 from authentication.models import profile
 from django.template import loader
+#from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
    return render(request,'index.html')
 
 
+
 def board(request):
-   return render(request,'board.html')
+  if request.user.is_authenticated:
+    return render(request,'board.html')
+  else:
+    return render(request,'index.html')
 
 def save(request):
   #print("anjali")
@@ -26,9 +33,11 @@ def save(request):
       except ObjectDoesNotExist:
          u = None
       if u:
-         #print "user exists"
-         u.score=u.score+int(request.GET['score'])
-         #print u.score
+         print "user exists"
+         t=u.score+int(request.GET['score'])
+         u.score=t
+         u.save()
+         print u.score
       else:
          u = profile(user=request.user,score=request.GET['score'])
          u.save()
