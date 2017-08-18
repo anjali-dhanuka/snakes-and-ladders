@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
 
-
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import logout
 from django.shortcuts import render
 from django.contrib.auth.views import logout as contrib_logout
@@ -17,12 +17,22 @@ def board(request):
    return render(request,'board.html')
 
 def save(request):
-  print("anjali")
+  #print("anjali")
   if request.is_ajax():
     if request.method=='GET':
-      u = profile(user=request.user,score=request.GET['score'])
-      u.save()
-      return HttpResponse("%s" %user.score)
+      try:
+         u=profile.objects.get(user=request.user)
+         #profile.objects.get(user=request.user).score+=request.GET['score'] 
+      except ObjectDoesNotExist:
+         u = None
+      if u:
+         #print "user exists"
+         u.score=u.score+int(request.GET['score'])
+         #print u.score
+      else:
+         u = profile(user=request.user,score=request.GET['score'])
+         u.save()
+      return HttpResponse("%s" %u.score)
       
 #def logout(request):
 #   logout(request.user)
