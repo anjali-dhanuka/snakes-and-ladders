@@ -25,6 +25,7 @@ urlpatterns = [
    url(r'^api/v1/', include('social_django.urls', namespace='social')),  
    url(r'^board/$',views.board,name='board'),
    url(r'^save/$',views.save,name='save'),
+   url(r'^leaderboard/$',views.leaderboard,name='leaderboard'),
 #   url(r'^logout/$',views.logout,name='logout'),
    url(r'^logout/$', views.logout, {'next_page': 'index'}, name='logout'),
    url(r'^admin/', admin.site.urls),

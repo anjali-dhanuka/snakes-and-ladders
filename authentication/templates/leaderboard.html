@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+Leaderboard
+<br><br>
+{% if players %}
+    <table>
+    {% for player in players %}
+        <tr>
+        <td>{{player.user}}</td>
+        <td>{{player.score}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    No one has played the game before
+{% endif %}
+</body>
+</html>

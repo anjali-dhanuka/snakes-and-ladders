@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render
 from django.contrib.auth.views import logout as contrib_logout
 from authentication.models import profile
-
+from django.template import loader
 # Create your views here.
 def index(request):
    return render(request,'index.html')
@@ -33,7 +33,16 @@ def save(request):
          u = profile(user=request.user,score=request.GET['score'])
          u.save()
       return HttpResponse("%s" %u.score)
-      
+ 
+ #def leaderboard(request):
+  #players=profile.objects.order_by('-score')
+def leaderboard(request):
+    players = profile.objects.order_by('-score')[:5]
+    template = loader.get_template('leaderboard.html')
+    context = {
+        'players': players,
+    }
+    return HttpResponse(template.render(context, request))    
 #def logout(request):
 #   logout(request.user)
 #   return render(request,'logout.html')
