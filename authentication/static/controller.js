@@ -48,8 +48,8 @@ $rootScope.snakes=[{"start":23,
      $rootScope.yourcurrentpos=0;
      $rootScope.compcurrentpos=0;             
 	 $rootScope.x=0;
-	$rootScope.y=3;
-  $rootScope.c=3;
+	$rootScope.y=3.6;
+  $rootScope.c=3.6;
   $rootScope.d=0;	
   });
 
@@ -121,11 +121,11 @@ for(var i=0;i<$rootScope.ladders.length;i++)
 
 if(($rootScope.yourcurrentpos%10)!=0)
 {
-  $rootScope.y=(Math.floor(($rootScope.yourcurrentpos)/10)*10)+3.5;
+  $rootScope.y=(Math.floor(($rootScope.yourcurrentpos)/10)*10)+3.81;
 }
 else
 {
-  $rootScope.y=(((Math.floor(($rootScope.yourcurrentpos)/10))-1)*10)+3.5;
+  $rootScope.y=(((Math.floor(($rootScope.yourcurrentpos)/10))-1)*10)+3.81;
 }
 //console.log($rootScope.y);
 
@@ -158,11 +158,11 @@ else
 
 if(($rootScope.compcurrentpos%10)!=0)
 {
-  $rootScope.c=(Math.floor(($rootScope.compcurrentpos)/10)*10)+3.5;
+  $rootScope.c=(Math.floor(($rootScope.compcurrentpos)/10)*10)+3.81;
 }
 else
 {
-  $rootScope.c=(((Math.floor(($rootScope.compcurrentpos)/10))-1)*10)+3.5;
+  $rootScope.c=(((Math.floor(($rootScope.compcurrentpos)/10))-1)*10)+3.81;
 }
 //console.log($rootScope.y);
 
