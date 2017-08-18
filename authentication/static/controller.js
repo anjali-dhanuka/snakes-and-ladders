@@ -192,9 +192,9 @@ else
 }
 }
   
-var score=1;
+//var score=1;
 
-function makerequest(){
+/*function makerequest(){
   console.log("ads");   
   $.ajax({
      url:'/save/',
@@ -204,10 +204,12 @@ function makerequest(){
     //alert("djdhr");
 
       });
-  }
-}      
-});
-var score=121;
+  }*/
+
+
+
+
+var score=1;
 function makerequest(){
   console.log("ads");   
   $.ajax({
@@ -220,9 +222,12 @@ function makerequest(){
 
       });
   }
-/*if($rootScope.yourcurrentpos==100){
-makerequest();*/     
+if($rootScope.yourcurrentpos==100){
+makerequest();    
+}
 
+}      
+});
 
 //}
 
