@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.http import HttpResponse
+
 
 from django.contrib.auth import logout
 from django.shortcuts import render
 from django.contrib.auth.views import logout as contrib_logout
-
+from authentication.models import profile
 
 # Create your views here.
 def index(request):
@@ -18,9 +20,8 @@ def save(request):
   print("anjali")
   if request.is_ajax():
     if request.method=='GET':
-      user = User.objects.get(request.user)
-      user.score=request.GET['score']
-      user.save()
+      u = profile(user=request.user,score=request.GET['score'])
+      u.save()
       return HttpResponse("%s" %user.score)
       
 #def logout(request):
