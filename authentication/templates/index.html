@@ -1,8 +1,86 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="snlApp">
 <head>
+<title>snake and ladders</title>
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="{% static "controller.js" %}"></script>
+
+<style>
+body
+{
+	margin:0;
+}
+/*.comp{
+     position:absolute;
+     width:50px;
+     height:50px;
+}*/
+.board
+{
+	position: relative;
+	width:762px;
+	height: 762px;
+	padding:0px;
+	border:0px;
+	margin:0px;
+
+}
+</style>
+
 </head>
+
 <body>
- <a href="{% url 'social:begin' 'google-oauth2' %}">Google+</a>
- <a href="/leaderboard/">Ledaerboard</a>
+{% verbatim %}
+<div class="main">
+<h1>Snake and ladders</h1>
+</div>
+
+<div class="board">
+<img src="http://www.playonlinedicegames.com/Resources/images/snl.png">
+<div class="user" ng-style="{'position':'absolute', 'bottom':y+'vh', 'left':x+'vh', 'width':'58px' ,'height': '78px'}">
+<img src="http://www.playonlinedicegames.com/Resources/images/User.png">
+</div>
+<div class="comp" ng-style="{'position':'absolute', 'bottom' : c+'vh' , 'left':d+'vh' , 'width': '58px' , 'height': '78px'}">
+<img src="http://www.playonlinedicegames.com/Resources/images/System.png">
+</div>
+</div>
+
+<div ng-show="yourcurrentpos==100">
+You won
+</div>
+
+
+<div ng-show="compcurrentpos==100">
+computer won
+</div>
+
+<!--<div ng-controller="reset" ng-show="yourcurrentpos==100 || compcurrentpos==100">
+<button id="reset">reset</button>
+</div>-->
+
+<div ng-controller="BtnCtrl">
+
+<button ng-click="rolldice()" ng-hide="yourcurrentpos==100 || compcurrentpos==100" >
+Your turn<br>
+<div>Your number:{{yourDice}}</div>
+<div>Computer's no:{{computerDice}}</div>
+<div>{{yourcurrentpos}}</div>
+<div>{{compcurrentpos}}</div>
+
+</button>
+
+</div>
+<br><br>
+<button>
+<a href="/logout/">
+Quit game
+</a>
+</button>
+
+
+{% endverbatim %}
 </body>
 </html>
