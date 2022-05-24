@@ -6,7 +6,7 @@ Django==1.11.4
 gunicorn==19.7.1
 idna==2.6
 oauthlib==2.0.2
-PyJWT==1.5.2
+PyJWT==2.4.0
 python-openid==2.2.5
 pytz==2017.2
 requests==2.18.4
